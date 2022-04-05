@@ -39,7 +39,7 @@ with pymysql.connect(host=host, user=user, database=db_name) as conn:
         reader = read_csv(file_name)
 
         for iter in reader:
-            query = "insert into data (col1, col2, col3, col4, col5, col6) VALUES (%s, %s, %s, %s, %s, %s);"
+            query = "INSERT INTO data (col1, col2, col3, col4, col5, col6) VALUES (%s, %s, %s, %s, %s, %s);"
             cur.executemany(query, list(map(tuple, list(iter))))
             cur.execute(query)
 
